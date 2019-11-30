@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>JSVecX: JavaScript port of VecX by raz0red with touch of DrSnuggles</title>
+  <link href="main.css" type="text/css" rel="stylesheet"/>
+  <script src="./vectrex.js"></script>
+  <script>
+  var romList = [
+    ["Commercial", [
+      ["Armor Attack", "armor"],
+      ["Bedlam", "bedlam"],
+      ["Berzerk", "berzerk_debugged"],
+      ["Blitz", "blitz"],
+      [ "Clean Sweep", "sweep"],
+      ["Cosmic Chasm", "chasm"],
+      ["Fortress of Narzod", "narzod"],
+      ["Heads Up", "headsup"],
+      [ "Hyper Chase", "hyper"],
+      ["Mine Storm", "minestorm"],
+      ["Mine Storm 2", "minestorm_2"],
+      ["Polar Rescue", "polar"],
+      ["Pole Position", "pole"],
+      ["Ripoff", "ripoff"],
+      ["Scramble", "scramble"],
+      ["Solar Quest", "solar"],
+      ["Space Wars", "space"],
+      ["Spike", "spike"],
+      ["Spinball", "spinball"],
+      ["Star Castle", "castle"],
+      ["Star Hawk", "starhawk"],
+      ["Star Trek", "startrek"],
+      ["Web Wars", "webwars"]
+    ]],
+    ["Unreleased and Prototypes", [
+      ["Dark Tower", "dktower"],
+      [ "Mail Plane", "MailPlane"],
+      [ "Pitcher\'s Duel", "Pitchers"],
+      ["Tour de France", "tdf"]
+    ]],
+    ["Homebrew", [
+      ["All Good Things", "agt"],
+      ["Asteroid Cowboy", "asteroid_cowboy"],
+      ["Birds of Prey", "BirdsofPrey(1999)"],
+      ["Gravitrex plus", "gravplus"],
+      [ "Moonlander", "moon"],
+      ["Nebula Commander", "nebula"],
+      [ "Omega Chase", "Omega16k"],
+      ["Patriots", "patriot"],
+      ["Patriots III", "PatriotsIII"],
+      ["Revector", "revector"],
+      ["Rockaroids Remix", "rocks"],
+      ["Space Frenzy", "sfpd"],
+      ["Spike Hoppin\'", "spikehop"],
+      [ "Spike\'s Water Balloons", "spikewater"],
+      ["Thrust", "thrust"],
+      ["Tsunami", "tsu-dl"],
+      ["Vecmania 1", "vecmania1"],
+      ["Vecmania 2", "vecmania2"],
+      ["Vectrex Frogger", "frogger"],
+      [ "Vectrexians", "Vectrexians-1999-PD"],
+      ["Vix", "vix-dl"],
+      ["War of the Robots", "wotr"]
+    ]]
+  ];
+
+  var vecx = new VecX();
+
+  function dropHandler(ev) {
+    var file = null;
+    if (ev.dataTransfer.items) {
+      for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+        if (ev.dataTransfer.items[i].kind === 'file') {
+          file = ev.dataTransfer.items[i].getAsFile();
+          break;
+        }
+      }
+    } else {
+      for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+        file = ev.dataTransfer.files[i];
+        break;
+      }
+    }
+
+    if (file) {
+      if (file.size <= 100 * 1024) /* 100kb max */ {
+        var reader = new FileReader();
+        reader.readAsBinaryString(file);
+        stat.innerText = "Processing file...";
+        reader.onloadend = function() {
+          stat.innerText = "Processing completed.";
+          Globals.cartdata = reader.result;
+          roms.selectedIndex = 0;
+          switchRom(null);
+        }
+      } else {
+        stat.innerText = "File too large.";
+      }
+    }
+  }
+
+  function switchRom(rom) {
+      vecx.stop();  // Stop the emulator
+      vecx.osint.osint_clearscreen(); // Clear the screen
+
+      // Start the emulator
+      if (!rom) {
+        // rom was dropped
+        overlay.src = "./overlays/none.png";
+        vecx.reset();
+      } else {
+        // rom was chosen
+        var imgName = rom.split("_")[0];
+        overlay.src = "./overlays/" + imgName + ".png";
+        // Load the the new rom
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "./roms/"+rom+".bin", true);
+        xhr.overrideMimeType('text/plain; charset=x-user-defined');
+        xhr.onload = function(e) {
+          Globals.cartdata = e.target.response;
+          stat.innerText = "Loaded.";
+          vecx.reset();
+        }
+        xhr.send();
+      }
+  }
+
+  function doinit() {
+    stat.innerText = "Starting up...";
+
+    // fill select
+    var html = [];
+    html.push('<option value="">Select a cartridge...</option>');
+    for (var i = 0; i < romList.length; i++) {
+      html.push('<optgroup label="'+ romList[i][0]+'">');
+      for (var j = 0; j < romList[i][1].length; j++) {
+        html.push('<option value="'+ romList[i][1][j][1]+'">'+romList[i][1][j][0]+'</option>');
+      }
+      html.push('</optgroup>');
+    }
+    roms.innerHTML = html.join("");
+    roms.onchange = function(e) {
+      e = e.srcElement;
+      if (e.value == "") return;
+      //e.blur(); // Remove focus from the roms element
+      stat.innerText = "Loading " + e.text + " ...";
+      switchRom( e.value ); // Get the newly selected rom
+    }
+
+    // key handler
+    document.onkeydown = function(event) {
+      vecx.onkeydown(event);
+    };
+    document.onkeyup = function(event) {
+      vecx.onkeyup(event);
+    };
+
+    overlay.onload = function(e) {
+      resizer();
+    }
+    overlay.onerror = function(e) {
+      overlay.src = "./overlays/none.png";
+    }
+
+
+    // Drag and drop
+    var dropArea = window;
+    ['drop','dragdrop','dragenter','dragleave','dragover'].forEach(evName => {
+      dropArea.addEventListener(evName, preventDefaults, false);
+    });
+    function preventDefaults(e) {
+      e.preventDefault();
+      //e.stopPropagation();
+    }
+    ['drop','dragdrop'].forEach(evName => {
+      dropArea.addEventListener(evName, dropHandler, false);
+    });
+
+    //
+    // mouse handler
+    //
+    addEventListener("contextmenu", toggleMenu, false);
+    addEventListener("dblclick", toggleFullscreen, false);
+
+    addEventListener('resize', resizer, false);
+    resizer();
+
+    vecx.main();
+    raf = requestAnimationFrame(gp_handler);
+  };
+
+  function toggleMenu(e) {
+    if (e) e.preventDefault();
+    //menu.classList.toggle("fadeIn");
+    if (menu.style.display == "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+    /*
+    if (vecx.running) {
+      vecx.stop();
+      menu.classList.add("fadeIn");
+      vecscr.style.display = "none";
+    } else {
+      vecx.start();
+      menu.classList.remove("fadeIn");
+      vecscr.style.display = "block";
+      resizer();
+    }
+    */
+  }
+  function toggleFullscreen() {
+    if (!window.screenTop && !window.screenY) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen();
+    }
+  }
+  function toggleAA() {
+    vecscr.classList.toggle("noAA");
+    overlay.classList.toggle("noAA");
+    if (overlay.classList.contains("noAA")) {
+      stat.innerText = "AntiAlias turned off.";
+    } else {
+      stat.innerText = "AntiAlias turned on.";
+    }
+  }
+  function toggleGP() {
+    if (raf) {
+      cancelAnimationFrame(raf);
+      raf = null;
+      stat.innerText = "Gamepad turned off.";
+    } else {
+      raf = requestAnimationFrame(gp_handler);
+      stat.innerText = "Gamepad turned on.";
+    }
+  }
+  function toggleSound() {
+    var ret = vecx.toggleSoundEnabled();
+    if (ret) {
+      stat.innerText = "Sound turned on.";
+    } else {
+      stat.innerText = "Sound turned off.";
+    }
+  }
+  function toggleOverlay() {
+    overlay.classList.toggle('fadeOut');
+    if (overlay.classList.contains("fadeOut")) {
+      stat.innerText = "Overlay turned off.";
+    } else {
+      stat.innerText = "Overlay turned on.";
+    }
+  }
+
+  //
+  // Gamepad handler
+  //
+  var raf = null;
+  function gp_handler() {
+    raf = requestAnimationFrame(gp_handler);
+    var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
+    for (let i = 0; i < gamepads.length; i++) {
+      gp = gamepads[i];
+      if (gp) {
+        //console.log("Gamepad connected at index " + gp.index + ": " + gp.id + ". It has " + gp.buttons.length + " buttons and " + gp.axes.length + " axes.");
+        // XBOX360 mappings
+        //if (gp.buttons[8].pressed) console.log(gp); // back button
+        /*
+        if (gp.buttons[0].pressed) console.log("A");
+        if (gp.buttons[1].pressed) console.log("B");
+        if (gp.buttons[2].pressed) console.log("X");
+        if (gp.buttons[3].pressed) console.log("Y");
+        if (gp.buttons[4].pressed) console.log("LB");
+        if (gp.buttons[5].pressed) console.log("RB");
+        if (gp.buttons[6].pressed) console.log("LT"+gp.buttons[6].value);
+        if (gp.buttons[7].pressed) console.log("RT"+gp.buttons[7].value);
+        if (gp.buttons[7].touched) console.log("RT touched"); // touched ~0.1 and softer than pressed
+        if (gp.buttons[8].pressed) console.log("<");
+        if (gp.buttons[9].pressed) console.log(">");
+        if (gp.buttons[10].pressed) console.log("LS");
+        if (gp.buttons[11].pressed) console.log("RS");
+        if (gp.buttons[12].pressed) console.log("U");
+        if (gp.buttons[13].pressed) console.log("D");
+        if (gp.buttons[14].pressed) console.log("L");
+        if (gp.buttons[15].pressed) console.log("R");
+        */
+
+        // buttons
+        if (gp == 0) {
+          vecx.shadow_snd_regs14 = 0xff;
+        }
+        //special buttons on all gps
+        if (gp.buttons[9].pressed) { // START = PAUSE
+          toggleMenu();
+        }
+        if (gp.buttons[8].pressed) { // BACK = RESET
+          vecx.reset();
+        }
+        if (gp.buttons[4].pressed) { // LB = SOUND
+          toggleSound();
+        }
+        if (gp.buttons[5].pressed) { // LB = OVERLAY
+          toggleOverlay();
+        }
+        /* vectrex controller 1 */
+        if (i == 0) {
+          if (gp.buttons[3].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x01);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x01;
+          }
+          if (gp.buttons[2].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x02);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x02;
+          }
+          if (gp.buttons[1].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x04);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x04;
+          }
+          if (gp.buttons[0].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x08);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x08;
+          }
+
+          if (gp.axes.length > 1) {
+            // analog stick
+            vecx.alg_jch0 = Math.min(255,Math.floor(gp.axes[0]*128)+128);
+            vecx.alg_jch1 = Math.min(255,Math.floor(gp.axes[1]*128)+128);
+          } else {
+            // digital gamepad stick
+            if (gp.buttons[14].pressed) {
+              vecx.alg_jch0 = 0;
+            } else if(gp.buttons[15].pressed) {
+              vecx.alg_jch0 = 255;
+            } else {
+              vecx.alg_jch0 = 128;
+            }
+            if (gp.buttons[12].pressed) {
+              vecx.alg_jch1 = 255;
+            } else if(gp.buttons[13].pressed) {
+              vecx.alg_jch1 = 0;
+            } else {
+              vecx.alg_jch1 = 128;
+            }
+          }
+
+        } // i==0
+
+        // vectrex controller 2
+        if (i == 1) {
+          if (gp.buttons[3].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x10);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x10;
+          }
+          if (gp.buttons[2].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x20);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x20;
+          }
+          if (gp.buttons[1].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x40);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x40;
+          }
+          if (gp.buttons[0].pressed) {
+            vecx.shadow_snd_regs14 &= (~0x80);
+          } else {
+            vecx.shadow_snd_regs14 |= 0x80;
+          }
+
+          if (gp.axes.length > 1) {
+            // analog stick
+            vecx.alg_jch2 = Math.min(255,Math.floor(gp.axes[0]*128)+128);
+            vecx.alg_jch3 = Math.min(255,Math.floor(gp.axes[1]*128)+128);
+          } else {
+            // digital gamepad stick
+            if (gp.buttons[14].pressed) {
+              vecx.alg_jch2 = 0;
+            } else if(gp.buttons[15].pressed) {
+              vecx.alg_jch2 = 255;
+            } else {
+              vecx.alg_jch2 = 128;
+            }
+            if (gp.buttons[12].pressed) {
+              vecx.alg_jch3 = 255;
+            } else if(gp.buttons[13].pressed) {
+              vecx.alg_jch3 = 0;
+            } else {
+              vecx.alg_jch3 = 128;
+            }
+          }
+
+          break; // just use two gamepads
+        } // i == 1
+
+      }
+    }
+  };
+
+  //
+  // resize handler
+  //
+  // tried via CSS first but coz of different aspect ratio overlay vs screen i did this
+  function resizer() {
+    var viewportWidth = window.innerWidth;
+    var viewportHeight = window.innerHeight;
+    var viewportRatio = viewportWidth / viewportHeight;
+    if (viewportRatio < 351/449) {
+      //console.log("overlay fits horizontally");
+      overlay.style.width = viewportWidth +'px';
+      overlay.style.height = 'auto';
+      // fit screen canvas in mid with same aspect ratio
+      vecscr.style.width = 330/351 * viewportWidth +'px';
+      vecscr.style.height = 'auto';
+    } else {
+      //console.log("overlay fits vertically");
+      overlay.style.height = viewportHeight +'px';
+      overlay.style.width = 'auto';
+      // fit screen canvas in mid with same aspect ratio
+      vecscr.style.height = 410/449 * viewportHeight +'px';
+      vecscr.style.width = 'auto';
+    }
+
+    // shift the inner screen canvas into the mid
+    var xdiff = overlay.clientWidth - vecscr.clientWidth;
+    var ydiff = overlay.clientHeight - vecscr.clientHeight;
+    vecscr.style.left = xdiff/2 +'px';
+    vecscr.style.top = ydiff/2 +'px';
+
+    // center wrapper
+    xdiff = viewportWidth - overlay.clientWidth;
+    ydiff = viewportHeight - overlay.clientHeight;
+    wrapper.style.left = xdiff/2 +'px';
+    wrapper.style.top = ydiff/2 +'px';
+
+    // size and center the menu
+    menu.style.width = overlay.clientWidth * 0.8 +'px';
+    menu.style.height = overlay.clientHeight * 0.8 +'px';
+    menu.style.left = overlay.clientWidth * 0.1 +'px';
+    menu.style.top = overlay.clientHeight * 0.1 +'px';
+  }
+  </script>
+</head>
+<body>
+
+  <div id="wrapper">
+    <canvas id="vecscr" width="330" height="410"></canvas>
+    <img id="overlay" class="fadeAble" src="./overlays/none.png"/>
+    <div id="menu" class="fadeAble">
+      <div id="stat">Loading ...</div>
+      <select id="roms"></select><br/>
+      <button onclick="vecx.reset();">Reset</button><br/>
+      <button onclick="toggleAA();">Toggle AA</button><br/>
+      <button onclick="toggleSound();">Toggle Sound</button><br/>
+      <button onclick="toggleOverlay();">Toggle Overlay</button><br/>
+      <button onclick="toggleGP();">Toggle Gamepad</button><br/>
+      <button onclick="toggleFullscreen();">Toggle Fullscreen</button><br/>
+      <div id="instructions">
+        Buttons = A S D F<br/>
+        Stick = Arrow keys or P L ; '<br/>
+        or use a X360 gamepad<br/>
+        RMB = Menu<br/>
+        <br/>
+      </div>
+      <div id="credits">
+        This fork by <a href="https://github.com/DrSnuggles/jsvecx" target="_blank">DrSnuggles</a><br/>
+        Javascript port by <a href="http://www.twitchasylum.com/jsvecx/" target="_blank">raz0red</a><br/>
+        Original C version by <a href="http://valavan.net/vectrex.html" target="_blank">Valavan Manohararajah</a><br/>
+        Sound emulation based on various code snippets by<br/>
+        Ville Hallik, Michael Cuddy, Tatsuyuki Satoh,<br/>
+        Fabrice Frances, Nicola Salmoria.<br/>
+        <br/>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      doinit();
+      // load rom
+      const urlParams = new URLSearchParams(window.location.search);
+      const rom = urlParams.get('rom');
+      if (rom) {
+        switchRom(rom);
+      } else {
+        // build in rom
+        overlay.src = "./overlays/minestorm.png";
+      }
+    })();
+  </script>
+
+</body>
+</html>

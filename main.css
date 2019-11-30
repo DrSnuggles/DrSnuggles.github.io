@@ -1,0 +1,90 @@
+/* Vars */
+:root {
+  --mainColor: #F90;
+  --bgColor: #555;
+}
+
+/* Typo */
+
+body {
+  margin: 0;
+  color: var(--mainColor);
+  background-color: var(--bgColor);
+  background: linear-gradient(45deg, #555 0%, #999 100%);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+header {
+  text-align: center;
+  background: -webkit-linear-gradient(var(--mainColor), #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 1px solid var(--mainColor);
+  font-size: 3.5vw;
+}
+  header > h1 {
+    margin: 0 0 5px 0;
+  }
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+  border-top: 1px solid var(--mainColor);
+}
+h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 5vw;
+}
+p {
+  text-align: justify;
+}
+
+section {
+  overflow-y: scroll;
+  height: 80vh;
+  text-align: center;
+}
+article {
+  border-bottom: 1px dashed var(--mainColor);
+}
+article > div,
+article > p
+{
+  font-size: 3vw;
+  margin: 10px 5px 10px 5px;
+}
+
+/* iFrames */
+iframe {
+  border: 0;
+  width: 30vw;
+  height: 30vh;
+}
+
+/* Links */
+a {
+  background:
+     linear-gradient(
+       to right,
+       var(--mainColor) 0%,
+       var(--mainColor) 5px,
+       transparent 5px
+     );
+    background-repeat: repeat-x;
+    background-size: 100%;
+  color: #000;
+  padding-left: 10px;
+  text-decoration: none;
+}
+  a:hover {
+    background:
+       linear-gradient(
+         to right,
+         var(--mainColor) 0%,
+         var(--mainColor) 5px,
+         transparent
+       );
+  }
