@@ -49,6 +49,7 @@ section {
 }
 article {
   border-bottom: 1px dashed var(--mainColor);
+  padding-bottom: 50px;
 }
 article > div,
 article > p
@@ -64,6 +65,18 @@ iframe {
   height: 30vh;
 }
 
+/* Images */
+img {
+  width: 80vw;
+}
+
+img[onclick] {
+  cursor: pointer;
+}
+.four {
+  width: 20vw;
+}
+
 /* Links */
 a {
   background:
@@ -75,16 +88,18 @@ a {
      );
     background-repeat: repeat-x;
     background-size: 100%;
-  color: #000;
+  color: var(--mainColor);
   padding-left: 10px;
   text-decoration: none;
+  font-size: 3vw;
 }
   a:hover {
     background:
        linear-gradient(
-         to right,
-         var(--mainColor) 0%,
-         var(--mainColor) 5px,
-         transparent
+        to right,
+        var(--mainColor) 0%,
+        var(--mainColor) 5px,
+        transparent
        );
+    color: #000;
   }

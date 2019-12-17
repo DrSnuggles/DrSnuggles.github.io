@@ -1,0 +1,168 @@
+/*
+Amiga Style
+
+OS 1.x Colors:
+#  Name            Code
+0  Black           #000022
+1  White           #FFFFFF
+2  Blue            #0055AA
+3  Orange          #FF8800
+
+OS 2.x
+
+*/
+
+/* Typography */
+@font-face {
+  font-family: Topaz;
+  /*src: url("//cdn.jsdelivr.net/gh/DrSnuggles/Evoke19/style/amiga/topazplus120010.woff2") format("woff2"); /* no CDN loading here, maybe move to own Style/Layout function */
+  src: url("./style/amiga/topazplus120010.woff2") format("woff2");
+}
+* {
+  font-family: Topaz;
+  font-size: 15px;
+}
+
+/* Mouse cursor */
+*,
+.dragging
+{
+  /*cursor: url("//cdn.jsdelivr.net/gh/DrSnuggles/Evoke19/style/amiga/pointer1.cur"), auto; /* no CDN loading here, maybe move to own Style/Layout function */
+  cursor: url("./style/amiga/pointer1.cur"), auto;
+}
+a,
+img[onclick] {
+cursor: url("./style/amiga/Busy.cur"), auto;
+}
+
+/* Layout */
+body {
+  overflow: hidden;
+  background-color: #0055AA;
+  color: #FFFFFF;
+  margin: 20px 40px 20px 40px;
+}
+
+.screen {
+  position: absolute;
+  width: calc(100vw - 80px);
+  height: calc(100vh - 40px);
+}
+  .screenbar {
+    background-color: #FFFFFF;
+    color: #0055AA;
+    padding: 1px 4px 2px 4px;
+    white-space: nowrap;
+  }
+    #memory {
+      padding-left: 5vw;
+    }
+    #clock {
+      float: right;
+    }
+
+.window {
+  position: absolute;
+  border: 1px solid #FFFFFF;
+  background-color: #0055AA;
+  overflow: scroll;
+  xresize: both;
+  min-height: 50px;
+  xmax-height: 400px;
+  min-width: 100px;
+  margin: 25px 5px 5px 5px;
+  user-select: none;
+}
+  .titlebar {
+    position: sticky;
+    top: 0;
+    background-color: #FFFFFF;
+    color: #0055AA;
+    padding: 1px 0px 2px 1px;
+  }
+    .titlebar:before {
+      content: '\25A3';
+    }
+    .titlebar:after {
+      content: '';
+    }
+
+button {
+  background-color: #FFFFFF;
+  color: #0055AA;
+}
+
+/* amiga windows */
+#Info {
+  bottom: 0;
+  right: 0;
+  width: 20vw;
+  height: 100px;
+  float: left;
+}
+
+#Player {
+  top: calc(20vw + 20px);
+  right: 0;
+  width: 20vw;
+  height: 200px;
+  float: left;
+}
+
+#Vectrex {
+  left: 0;
+  bottom: 0;
+  width: 610px;
+  height: 400px;
+}
+#Textbox {
+  top: 0;
+  left: 0;
+  width: calc(80vw - 100px);
+  height: calc(100vh - 72px);
+  float: right;
+}
+  #textbox,
+  #resultsbox {
+    white-space: pre;
+  }
+
+#MonoScope {
+  top: 0;
+  right: 0;
+  width: 20vw;
+  height: 20vw;
+}
+  #goniometercanvas {
+    width: 100%;
+    height: calc(100% - 24px);
+  }
+
+#PicView {
+  top: 0px;
+  right: 0px;
+  width: 600px;
+  height: 600px;
+}
+  #picture {
+    width: 100%;
+  }
+
+img {
+  width: 100%;
+}
+
+/* links */
+a,
+a:visited {
+  text-decoration: none;
+  color: #FF8800;
+}
+a:hover {
+  color: #000;
+  background-color: #FF8800;
+}
+
+/* media queries */
+@media (orientation: landscape) {
+}

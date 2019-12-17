@@ -1,0 +1,34 @@
+<div class="screen">
+  <div class="screenbar" draggable="true">
+    <span>DrSnuggles' Github page</span><span id="memory"></span><span id="clock"></span>
+  </div>
+
+  <br/>
+
+  <div class="window" id="Info">
+    <div class="titlebar" draggable="true">Info</div>
+    <div>
+      AMIGAAAAAAAAA<br/>
+      LMB Player/Scope = Next song<br/>
+      LMB on Pics = Open
+    </div>
+  </div>
+
+  <div class="window" id="Textbox">
+    <div class="titlebar" draggable="true">Bla bla <span id="txtTitle"></span></div>
+    <div id="textbox"></div>
+  </div>
+
+  <div class="window" id="Player" onclick="app.playNextTrack()" oncontextmenu="app.playPrevTrack()">
+    <div class="titlebar" draggable="true">Player <span id="trackTitle"></span></div>
+    <div id="title"></div>
+    <div id="position"></div>
+    <div id="msg"></div>
+  </div>
+
+  <div class="window" id="MonoScope" onclick="app.playNextTrack()" oncontextmenu="app.playPrevTrack()">
+    <div class="titlebar" draggable="true">MonoScope</div>
+    <canvas id="goniometercanvas"></canvas>
+  </div>
+
+</div>

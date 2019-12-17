@@ -1,0 +1,52 @@
+[
+  {
+    "date": "17.12.2019",
+    "title": "News from the Vectrex front",
+    "content": "I like the Tiny8Emulators feature to show the chips doing their hard work.<br/>I thought Vectrex needs that too.<br/>Also added a lot of Roms from the <a target=\"blank\" href=\"http://eiti.fh-pforzheim.de/personen/johannsen/projektlabor/vectrex_2019/vectrex_academy_2019.htm\">Vectrex Academy</a>.<br/>Thanks to all the students and the prof for all the new software for our Vectrex' or emulators.<br/><a href=\"./jsvecx/?rom=rip-off&rtm=on\" target=\"_blank\">Vectrex Emulator using the chips</a>"
+  },
+  {
+    "date": "09.12.2019",
+    "title": "New Design",
+    "content": "The Design needed a change.<br/><br/>AMMIIIIIGGGAAAAA"
+  },
+  {
+    "date": "30.11.2019",
+    "title": "Hello World",
+    "content": "After all these years i decided to make one of this pages<br/>Mainly to host all that stuff but also to make it easier to access for others"
+  },
+  {
+    "date": "29.11.2019",
+    "title": "Vectrex emulator in vanilla js",
+    "content": "<div>Forked from raz0red's port of VecX i did my own approach on this emulator.<br/>I added resize and support for two gamepads<br/>RMB for menu<br/><a href=\"https://DrSnuggles.github.io/jsvecx/\" target=\"_blank\">Vectrex Emulator</a></div>"
+  },
+  {
+    "date": "19.11.2019",
+    "title": "Bang Jeannette Bang",
+    "content": "<img onclick=\"window.open('http://grandfilm.de/BangJeannetteBang')\" src=\"img/bang.jpg\"/>"
+  },
+  {
+    "date": "11.09.2019",
+    "title": "Evoke19",
+    "content": "<img src=\"img/Evoke19.png\" title=\"Evoke19\" alt=\"Evoke19\"/>"
+  },
+  {
+    "date": "06.07.2019",
+    "title": "NB Websites",
+    "content": "<img class=\"four\" src=\"img/nbantiques.jpg\" title=\"NB Antiques\" alt=\"NB Antiques\" onclick=\"window.open('https://www.neilbusby.co.uk/');\"/><br/><img class=\"four\" src=\"img/nbfurnishings.jpg\" title=\"NB Furnishings\" alt=\"NB Furnishings\" onclick=\"window.open('https://www.nbfurnishings.co.uk/');\"/><br/><img class=\"four\" src=\"img/nblazerart.jpg\" title=\"NB LazerArt\" alt=\"NB LazerArt\" onclick=\"window.open('https://www.lazerart.co.uk/');\"/><br/><img class=\"four\" src=\"img/sabaidee.jpg\" title=\"Sabaidee\" alt=\"Sabaidee\" onclick=\"window.open('https://www.sabaidee.net/');\"/>"
+  },
+  {
+    "date": "09.12.2018",
+    "title": "Have A Nice Day",
+    "content": "<img src=\"img/hand.jpg\" title=\"Have A Nice Day\" alt=\"Have A Nice Day\" onclick=\"window.open('http://www.haveaniceday-film.de/wp-content/uploads/game/');\"/>"
+  },
+  {
+    "date": "11.12.2018",
+    "title": "LaBeeRind2D",
+    "content": "<img src=\"img/LaBee.jpg\" title=\"LaBeeRind2D\" alt=\"LaBeeRind2D\" onclick=\"window.open('https://drsnuggles.itch.io/ld37b/');\"/><br/><a href=\"http://ludumdare.com/compo/ludum-dare-37/?action=preview&uid=125105\" target=\"_blank\">LD 37 Entry as Gnαx Productions</a>"
+  },
+  {
+    "date": "11.12.2018",
+    "title": "ED:Avatar Shooter",
+    "content": "<img src=\"img/avatar.jpg\" title=\"ED:Avatar Shooter\" alt=\"ED:Avatar Shooter\" onclick=\"window.open('https://drsnuggles.itch.io/ld37a/');\"/><br/><a href=\"http://ludumdare.com/compo/ludum-dare-37/?action=preview&uid=124318\" target=\"_blank\">LD 37 Entry</a>"
+  }
+]
