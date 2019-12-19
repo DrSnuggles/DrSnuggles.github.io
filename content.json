@@ -30,11 +30,6 @@
     "content": "<img src=\"img/Evoke19.png\" title=\"Evoke19\" alt=\"Evoke19\"/>"
   },
   {
-    "date": "06.07.2019",
-    "title": "NB Websites",
-    "content": "<img class=\"four\" src=\"img/nbantiques.jpg\" title=\"NB Antiques\" alt=\"NB Antiques\" onclick=\"window.open('https://www.neilbusby.co.uk/');\"/><br/><img class=\"four\" src=\"img/nbfurnishings.jpg\" title=\"NB Furnishings\" alt=\"NB Furnishings\" onclick=\"window.open('https://www.nbfurnishings.co.uk/');\"/><br/><img class=\"four\" src=\"img/nblazerart.jpg\" title=\"NB LazerArt\" alt=\"NB LazerArt\" onclick=\"window.open('https://www.lazerart.co.uk/');\"/><br/><img class=\"four\" src=\"img/sabaidee.jpg\" title=\"Sabaidee\" alt=\"Sabaidee\" onclick=\"window.open('https://www.sabaidee.net/');\"/>"
-  },
-  {
     "date": "09.12.2018",
     "title": "Have A Nice Day",
     "content": "<img src=\"img/hand.jpg\" title=\"Have A Nice Day\" alt=\"Have A Nice Day\" onclick=\"window.open('http://www.haveaniceday-film.de/wp-content/uploads/game/');\"/>"
