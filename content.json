@@ -1,5 +1,10 @@
 [
   {
+    "date": "18.12.2019",
+    "title": "JSVecX Patches by Malban",
+    "content": "Malban also did some \"small\" changes to JSVecX which of course i merged.<br/>He called them small but it's not only emulation improvement it's also enhancement like allow larger cartridges.<br/>Right now the only cartridge which makes use of is \"Vectorblade\".<br/>If you liked \"Warblade\" or \"Deluxe Galaga\" you should have a look what Vectrex hardware can do.<br/><a href=\"./jsvecx/?rom=Vectorblade&overlay=2\" target=\"_blank\">Play Vectorblade</a> by <a href=\"http://vide.malban.de\" target=\"_blank\">Malban</a>"
+  },
+  {
     "date": "17.12.2019",
     "title": "News from the Vectrex front",
     "content": "I like the Tiny8Emulators feature to show the chips doing their hard work.<br/>I thought Vectrex needs that too.<br/>Also added a lot of Roms from the <a target=\"blank\" href=\"http://eiti.fh-pforzheim.de/personen/johannsen/projektlabor/vectrex_2019/vectrex_academy_2019.htm\">Vectrex Academy</a>.<br/>Thanks to all the students and the prof for all the new software for our Vectrex' or emulators.<br/><a href=\"./jsvecx/?rom=rip-off&rtm=on\" target=\"_blank\">Vectrex Emulator using the chips</a>"
