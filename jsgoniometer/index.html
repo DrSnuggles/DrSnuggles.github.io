@@ -38,15 +38,12 @@
   <canvas id="vectorcanvas"></canvas>
 
   <script>
-    (function (){
+    function start() {
       var song = "../audio/alchemy.it";
-      // start music, doesn't matter if enableSpectrum is true or false
+      // start music
       ScriptNodePlayer.createInstance(new XMPBackendAdapter(), "", [], false, function(){}, function(){}, function(){ScriptNodePlayer.getInstance().loadMusicDataFromCache(song, {}, function(){});}); // backendAdapter, basePath, requiredFiles, enableSpectrum, onPlayerReady, onTrackReadyToPlay, onTrackEnd, doOnUpdate, externalTicker
       ScriptNodePlayer.getInstance().loadMusicFromURL(song, {}, function(){}, function(){}, function(){}); // url, options, onCompletion, onFail, onProgress
-      //start();
-    })();
 
-    function start() {
       Goniometer.lineColor = [150, 255, 150, 1]; // rgba values
       Goniometer.scopeColor = [0, 128, 0, 1]; // rgba values
       Goniometer.start(ScriptNodePlayer.getInstance()._gainNode, vectorcanvas);
