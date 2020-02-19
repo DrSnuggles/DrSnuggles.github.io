@@ -25,7 +25,7 @@ function meter(type) {
   this.corr = null;         // Correlation
   this.val = [];            // values for each channel which we are interesed in e.g. Root Mean Square
   this.damp = 0.95;         // damping
-  this.debug = true; // display console logs?
+  this.debug = false; // display console logs?
 
   //
   // Functions
