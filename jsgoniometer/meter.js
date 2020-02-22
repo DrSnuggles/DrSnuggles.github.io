@@ -175,8 +175,10 @@ function meter(type) {
           corr += this.getCorr(x, data[0][i]);
         }
         corr = corr / data[0].length;
+        // still something wrong where
+        if (corr > 1) corr = 1;
+        if (corr < -1) corr = -1;
         this.corr = (corr + this.corr*this.damp)/2.0;
-
         this.ctx.fillRect(this.corr * midH + midH - barwidth/2, padding, barwidth, this.height-(2*padding));
 
         break;
@@ -239,10 +241,10 @@ function meter(type) {
     this.ctx.beginPath();
     this.ctx.fillStyle = 'rgba('+this.color[0]+', '+this.color[1]+', '+this.color[2]+', '+this.color[3]+')';
     if (this.type === "peak" || this.type === "avg" || this.type === "rms") {
-      var fontsize = Math.floor((barwidth - barwidth/3)/2);
+      var fontsize = Math.floor((barwidth/3)/3);
       this.ctx.font = fontsize +"px Arial";
       for (var i = 0; i < cnt; i++) {
-        this.ctx.fillText(this.label[i], i*barwidth+barwidth/3, this.height);
+        this.ctx.fillText(this.label[i] + ATools.getDBTP().toFixed(1)+'dBTP', i*barwidth+padding, this.height);
       }
     }
     this.ctx.stroke();
