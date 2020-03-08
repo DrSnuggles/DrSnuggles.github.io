@@ -1,5 +1,15 @@
 [
   {
+    "date": "08.03.2020",
+    "title": "Goniometer",
+    "content": "Thanks to Youssef my focus seamless changed to my old jsGoniometer project.<br/><br/>WebAudio is quite tricky if you want exact values. It's always resampled to destination audio device sample rate.<br/>To make it worse we even don't know the original used sample rate.<br/>Until today...<a href=\"https://DrSnuggles.github.io/jsgoniometer/\" target=\"_blank\">Audio Analyser</a></div>"
+  },
+  {
+    "date": "16.02.2020",
+    "title": "JSVecX with ZIP support",
+    "content": "Finally i tought jsVecX how to care with URLs and ZIPs.<br/><br/>I'm proud say that the emu is used for advertising an upcoming Vectrex game.<br/><br/><img onclick=\"window.open('http://www.futurevector.eu')\" src=\"img/Moskwa.png\" title=\"Moskwa\" alt=\"Moskwa\"/>"
+  },
+  {
     "date": "18.12.2019",
     "title": "JSVecX Patches by Malban",
     "content": "Malban also did some \"small\" changes to JSVecX which of course i merged.<br/>He called them small but it's not only emulation improvement it's also enhancement like allow larger cartridges.<br/>Right now the only cartridge which makes use of is \"Vectorblade\".<br/>If you liked \"Warblade\" or \"Deluxe Galaga\" you should have a look what Vectrex hardware can do.<br/><a href=\"./jsvecx/?rom=Vectorblade&overlay=2\" target=\"_blank\">Play Vectorblade</a> by <a href=\"http://vide.malban.de\" target=\"_blank\">Malban</a>"
