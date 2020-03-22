@@ -1,0 +1,47 @@
+loadTowerData({
+    "path": "data/EXT/",
+	"towers": [{"id":0, "name":"Serpent"}, {"id":1, "name":"Chaos"}, {"id":2, "name":"Moon"}, {"id":3, "name":"Dragon"}],
+    "manifest": [
+		//Chaos Tower
+		{"id":"chaos_map", "src":"CHAOS.MAP", "callback":"readMapData", "type":"binary", "length":"null", "towerData":"Chaos"},
+		{"id":"chaos_switches", "src":"CHAOS.switches", "callback":"readSimpleData", "type":"binary", "length":"4", "towerData":"Chaos"},
+		{"id":"chaos_triggers", "src":"CHAOS.triggers", "callback":"readSimpleData", "type":"binary", "length":"4", "towerData":"Chaos"},
+		{"id":"chaos_monsters", "src":"CHAOS.monsters", "callback":"readSimpleDataHex", "type":"binary", "length":"6", "towerData":"Chaos"},
+		{"id":"chaos_objects", "src":"CHAOS.ob", "callback":"readSimpleData", "type":"binary", "length":"0", "towerData":"Chaos"},
+		
+		//Dragon Tower
+		{"id":"dragon_map", "src":"DRAG.MAP", "callback":"readMapData", "type":"binary", "length":"null","towerData":"Dragon"},
+		{"id":"dragon_switches", "src":"DRAG.switches", "callback":"readSimpleData", "type":"binary", "length":"4","towerData":"Dragon"},
+		{"id":"dragon_triggers", "src":"DRAG.triggers", "callback":"readSimpleData", "type":"binary", "length":"4","towerData":"Dragon"},
+		{"id":"dragon_monsters", "src":"DRAG.monsters", "callback":"readSimpleDataHex", "type":"binary", "length":"6","towerData":"Dragon"},
+		{"id":"dragon_objects", "src":"DRAG.ob", "callback":"readSimpleData", "type":"binary", "length":"0","towerData":"Dragon"},
+		
+		//Moon Tower
+		{"id":"moon_map", "src":"MOON.MAP", "callback":"readMapData", "type":"binary", "length":"null","towerData":"Moon"},
+		{"id":"moon_switches", "src":"MOON.switches", "callback":"readSimpleData", "type":"binary", "length":"4","towerData":"Moon"},
+		{"id":"moon_triggers", "src":"MOON.triggers", "callback":"readSimpleData", "type":"binary", "length":"4","towerData":"Moon"},
+		{"id":"moon_monsters", "src":"MOON.monsters", "callback":"readSimpleDataHex", "type":"binary", "length":"6","towerData":"Moon"},
+		{"id":"moon_objects", "src":"MOON.ob", "callback":"readSimpleData", "type":"binary", "length":"0","towerData":"Moon"},
+		
+		//Serpent Tower
+		{"id":"serp_map", "src":"SERP.MAP", "callback":"readMapData", "type":"binary", "length":"null","towerData":"Serpent"},
+		{"id":"serp_switches", "src":"SERP.switches", "callback":"readSimpleData", "type":"binary", "length":"4","towerData":"Serpent"},
+		{"id":"serp_triggers", "src":"SERP.triggers", "callback":"readSimpleData", "type":"binary", "length":"4","towerData":"Serpent"},
+		{"id":"serp_monsters", "src":"SERP.monsters", "callback":"readSimpleDataHex", "type":"binary", "length":"6","towerData":"Serpent"},
+		{"id":"serp_objects", "src":"SERP.ob", "callback":"readSimpleData", "type":"binary", "length":"0","towerData":"Serpent"},
+
+		//Shared Data
+		{"id":"championData", "src":"charstats.data", "callback":"readSimpleDataHex", "type":"binary", "length":"32"},
+		{"id":"championPocketData", "src":"charpockets.data", "callback":"readSimpleDataHex", "type":"binary", "length":"16"},
+		{"id":"monsterHeads", "src":"heads.monsters", "callback":"readSimpleData", "type":"binary", "length":"1"},
+		{"id":"monsterBodies", "src":"bodies.monsters", "callback":"readSimpleData", "type":"binary", "length":"1"},
+		{"id":"monsterPalette", "src":"palette.monsters", "callback":"readSimpleData", "type":"binary", "length":"4"},
+		{"id":"monsterPaletteMeta", "src":"palette_meta.monsters", "callback":"readSimpleData", "type":"binary", "length":"8"},
+		{"id":"towerSwitchesData", "src":"tower.switches", "callback":"readSimpleData", "type":"binary", "length":"25"},
+		{"id":"scrollData", "src":"scroll.data", "callback":"readScrollData", "type":"binary", "length":"0"},
+		{"id":"gemSwitchesData", "src":"gem.switches", "callback":"readSimpleData", "type":"binary", "length":"2"},
+		{"id":"crystalSwitchesData", "src":"crystal.switches", "callback":"readSimpleData", "type":"binary", "length":"0"},
+		{"id":"armourData", "src":"palette.armours", "callback":"readSimpleData", "type":"binary", "length":"4"},
+		{"id":"monsterItemData", "src":"monsterItems.data", "callback":"readMonsterItems", "type":"binary", "length":"4"}
+    ]
+});
