@@ -1,0 +1,63 @@
+:root {
+  --bgCol: #05A;
+  --mainCol: #FFF;
+  --darkCol: #002;
+  --actCol: #F80;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bgCol);
+  color: var(--mainCol);
+}
+select {
+  color: var(--bgCol);
+  cursor: pointer;
+}
+option {
+  color: var(--bgCol);
+}
+optgroup {
+  color: var(--actCol);
+}
+button {
+  border: 1px solid var(--actCol);
+  background-color: var(--mainCol);
+  color: var(--bgCol);
+  cursor: pointer;
+}
+button:focus{
+  outline: 0;
+}
+
+#ILBMcanvas {
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  image-rendering: pixelated;
+}
+#ILBMcanvas.scale {
+  height: 75vw;
+  width: 100vw;
+}
+  @media (min-width:calc(4/3*90vh)) {
+    #ILBMcanvas.scale {
+      height: 90vh;
+      width: calc(4/3*90vh);
+    }
+  }
+#info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  z-index: -1;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.aa {
+  image-rendering: auto !important;
+}
