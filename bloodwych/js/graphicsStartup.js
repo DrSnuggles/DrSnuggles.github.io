@@ -1,5 +1,4 @@
 function startScreen() {
-  console.log("startScreen");
     canvas.setAttribute('data-game-status', 'menu');
     canvas.addEventListener('keydown', doKeyDown, true);
     //checkClickEvents();
@@ -22,7 +21,6 @@ function startScreen() {
 }
 
 function preStartScreen() {
-  console.log("preStartScreen");
     canvas.setAttribute('data-game-status', 'menu');
     canvas.addEventListener('keydown', doKeyDown, true);
     checkClickEvents();

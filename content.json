@@ -1,5 +1,10 @@
 [
   {
+    "date": "31.03.2020",
+    "title": "Another dev uses JSVecX",
+    "content": "Just found that Garry Grierson has linked my online emulator in his <a href=\"https://garrysgamingblog.blogspot.com/p/programming-projects.html/\" target=\"_blank\">Blog</a><br/>Thank you Garry!!"
+  },
+  {
     "date": "29.03.2020",
     "title": "IFF - Interchange File Format",
     "content": "Inspired by old Amiga software i couldn't find an easy to use IFF 8SVX player for browsers.<br/>I did my own approach and for 8SVX i'm proud to say that this is the only software with all official and unoffical decompressors.<br/>Not only Fibonacci delta compression also Exponential delta compression next to ADPCM2 and ADPCM3.<br/>Play around with <a href=\"https://DrSnuggles.github.io/iff/\" target=\"_blank\">IFF</a>"

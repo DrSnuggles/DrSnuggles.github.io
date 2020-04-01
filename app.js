@@ -42,6 +42,10 @@ var app = (function (){
             LDR.loadURL(CDN('content.json'), function(dat) {
               data = JSON.parse(dat);
               showContent(data);
+              // needed for browser policies
+              addEventListener("keydown", resumeFunc);
+              addEventListener("click", resumeFunc);
+              addEventListener("touchstart", resumeFunc);
               playNextTrack();
               // done here start renderer
               requestAnimationFrame(renderer);
@@ -82,7 +86,12 @@ var app = (function (){
       Goniometer.start(ScriptNodePlayer.getInstance()._gainNode, goniometercanvas);
     },'');
   }
-
+  function resumeFunc() {
+    try {
+      var ctx = ScriptNodePlayer.getInstance()._bufferSource.context;
+      if (ctx.state !== 'running') ctx.resume();
+    } catch(e){}
+  }
   function renderer() {
     requestAnimationFrame(renderer);
     //
