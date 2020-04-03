@@ -57,7 +57,7 @@
   {
     "date": "19.11.2019",
     "title": "Bang Jeannette Bang",
-    "content": "<img onclick=\"window.open('http://grandfilm.de/BangJeannetteBang')\" src=\"img/bang.jpg\"/>"
+    "content": "<img src=\"img/bang.jpg\" title=\"BangJeannetteBang\" alt=\"BangJeannetteBang\"/>"
   },
   {
     "date": "11.09.2019",
