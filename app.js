@@ -98,7 +98,7 @@ var app = (function (){
     // Player
     //
     try {
-      if (window.player) {
+      if (typeof window.player !== "undefined") {
         // display time
         if (!player.isPaused()) {
           position.innerHTML = "<b>Pos:</b> " +formatTime( player.getCurrentPlaytime() );// + " [ " + player.getPlaybackPosition() +" / "+ player.getMaxPlaybackPosition() +" ]";
