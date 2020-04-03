@@ -1,0 +1,45 @@
+<div class="screen">
+  <div class="screenbar" draggable="true">
+    <span>Workbench release.</span>
+    <span id="memory"></span>
+    <span id="clock"></span>
+  </div>
+
+  <br/>
+
+  <div class="window" id="Info">
+    <div class="titlebar" draggable="true">Info</div>
+    <div>
+      AMIGAAAAAAAAA<br/>
+      LMB on window = Next<br/>
+      RMB on window = Prev
+    </div>
+  </div>
+
+  <div class="window" id="Textbox" onclick="demoparty.showNextTxt()" oncontextmenu="demoparty.showPrevTxt()">
+    <div class="titlebar" draggable="true">ANSI/ASCII <span id="txtTitle"></span></div>
+    <div id="textbox"></div>
+  </div>
+
+  <div class="window" id="Results">
+    <div class="titlebar" draggable="true">Evoke 2019 Results</div>
+    <div id="resultsbox"></div>
+  </div>
+
+  <div class="window" id="Player" onclick="demoparty.playNextTrack()" oncontextmenu="demoparty.playPrevTrack()">
+    <div class="titlebar" draggable="true">Player <span id="trackTitle"></span></div>
+    <div id="title"></div>
+    <div id="position"></div>
+  </div>
+
+  <div class="window" id="MonoScope" onclick="demoparty.playNextTrack()" oncontextmenu="demoparty.playPrevTrack()">
+    <div class="titlebar" draggable="true">MonoScope</div>
+    <canvas id="goniometercanvas"></canvas>
+  </div>
+
+  <div class="window" id="PicView" onclick="demoparty.showNextPic()" oncontextmenu="demoparty.showPrevPic()">
+    <div class="titlebar" draggable="true">PicView <span id="picName"></span></div>
+    <img id="picture"/>
+  </div>
+
+</div>

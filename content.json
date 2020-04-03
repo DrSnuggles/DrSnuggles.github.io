@@ -1,5 +1,10 @@
 [
   {
+    "date": "03.04.2020",
+    "title": "Bloodwych",
+    "content": "Some changes i did on <a href=\"https://DrSnuggles.github.io/bloodwych/\" target=\"_blank\">Bloodwych</a>:<ul><li>QuickSave F4</li><li>QuickLoad F9</li><li>Save to file</li><li>Load via drag'n'drop</li><li>RMB closes opened menus</li><li>consume water/food</li><li>removed jQuery dependency</li><li>fixes</li></ul>"
+  },
+  {
     "date": "31.03.2020",
     "title": "Another dev uses JSVecX",
     "content": "Just found that Garry Grierson has linked my online emulator in his <a href=\"https://garrysgamingblog.blogspot.com/p/programming-projects.html/\" target=\"_blank\">Blog</a><br/>Thank you Garry!!"
@@ -57,12 +62,12 @@
   {
     "date": "11.09.2019",
     "title": "Evoke19",
-    "content": "<img src=\"img/Evoke19.png\" title=\"Evoke19\" alt=\"Evoke19\"/>"
+    "content": "<img onclick=\"window.open('https://DrSnuggles.github.io/evoke19')\" src=\"img/Evoke19.png\" title=\"Evoke19\" alt=\"Evoke19\"/>"
   },
   {
     "date": "09.12.2018",
     "title": "Have A Nice Day",
-    "content": "<img src=\"img/hand.jpg\" title=\"Have A Nice Day\" alt=\"Have A Nice Day\" onclick=\"window.open('http://www.haveaniceday-film.de/wp-content/uploads/game/');\"/>"
+    "content": "<img onclick=\"window.open('http://www.haveaniceday-film.de/wp-content/uploads/game/');\" src=\"img/hand.jpg\" title=\"Have A Nice Day\" alt=\"Have A Nice Day\"/>"
   },
   {
     "date": "11.12.2018",

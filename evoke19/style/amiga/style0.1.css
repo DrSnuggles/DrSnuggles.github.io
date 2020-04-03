@@ -1,0 +1,92 @@
+/*
+Amiga Style
+
+OS 1.x Colors:
+#  Name            Code
+0  Black           #000022
+1  White           #FFFFFF
+2  Blue            #0055AA
+3  Orange          #FF8800
+
+OS 2.x
+
+*/
+
+/* Typography */
+@font-face {
+  font-family: Topaz;
+  xsrc: url("style/amiga/Topaz-8.woff2") format("woff2");
+  src: url("style/amiga/Topaz-8.ttf");
+  xsrc: url("style/amiga/topazplus120010.ttf");
+}
+* {
+  font-family: Topaz;
+  font-size: 12pt;
+}
+
+/* Mouse cursor */
+* {
+  cursor: url("style/amiga/pointer1.cur"), auto;
+}
+
+/* Layout */
+body {
+  overflow: hidden;
+  background-color: #0055AA;
+  color: #FFFFFF;
+}
+button {
+  background-color: #FFFFFF;
+  color: #0055AA;
+}
+#goniometercanvas,
+#picture
+{
+  position: absolute;
+  top: 10vh;
+  height: 90vh;
+  left: 0;
+  width: calc(100vw - 30px); /* max - scrollbar width */
+  pointer-events: none;
+}
+#nextTrackButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#nextStreamButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+}
+#title {
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+}
+#textbox {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100vw;
+  height: 90vh;
+  overflow-y: scroll;
+  white-space: pre;
+}
+/*
+#debug {
+  position: absolute;
+  top: 7vh;
+  left: 0;
+  width: 100vw;
+}
+*/

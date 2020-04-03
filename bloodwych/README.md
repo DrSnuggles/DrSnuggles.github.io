@@ -72,10 +72,10 @@ Movement keys for player 1 are Q,W,E,A,S,D
 
 Movement keys for player 2 are 7,8,9,4,5,6
 
-## Soon™
+## ToDo / Soon™
     - screen scaling
     - single player scaling
-    - change loading behaviour
+    - change ingame loading behaviour
       - fading behemoth loading screen
       - file loading info line
       - hold all info in single json file
@@ -83,19 +83,10 @@ Movement keys for player 2 are 7,8,9,4,5,6
       - next is to just hold a single png file with all data within, just have to add sheet offsets in sprites.json
       - same with audio files
       - data ??? using the original files and store offsets in JSON? but then gfx changes are not easily testable
-    - ingame loading
-    - build deploy version
+    - build deploy minimized version
     - toggle music + sound
-
-## ToDo
-    - Floor switches
     - Proper random banners
     - Avoid switched wall and doors to close when player/monster is on it
-    - BUG Player should be able to move backwards on stairs
-    - BUG Setting the value of 'savegame3' exceeded the quota.
-           True, localStorage quota is 5mb. each save > 1MB + autosave
-           Reduce to just 3 saves + autosave? Alternative save to file and make
-           load via drag'n'drop.
     - COD Beguile spell
     - COD Fix Big monster 'edge of screen'
     - BUG Arrows on Right UI sometimes show over pockets or scroll
@@ -105,8 +96,13 @@ Movement keys for player 2 are 7,8,9,4,5,6
     - UI  PORTRAITS in png file
     - UI  Colours in uistuff.png
     - COD Switch target undefined
+    + Floor switches (tested, working)
+    + BUG Player should be able to move backwards on stairs (tested, working)
 
 ## TaDa / History / Changelog
+    - 03.04.2020 Savefile as download / Load savestate via DnD
+        Setting the value of 'savegame3' exceeded the localStorage quota of 5mb. Each save > 1MB + autosave.
+        Added F4=QuickSave + F9=QuickLoad.
     - 30.03.2020 RMB closes opened menus
     - 22.03.2020 play() request was interrupted
     - 22.03.2020 food/water is now consumed
