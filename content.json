@@ -1,8 +1,18 @@
 [
   {
+    "date": "10.04.2020",
+    "title": "Github pages",
+    "content": "Did several tests how to deploy github pages.<br/>Specially jsVecx where i push a subdir from non master branch into gh-pages branch<br/>Cleaning up a bit..."
+  },
+  {
+    "date": "09.04.2020",
+    "title": "BassoonTracker",
+    "content": "Actually i started playing around with another mod player. It's very tiny and supports MOD and XM <a href=\"http://www.stef.be/bassoontracker/player/\" target=\"_blank\">BassoonTracker</a>:<ul><li>Player error handling improvement</li><li>Tests with UZIP</li></ul>"
+  },
+  {
     "date": "03.04.2020",
     "title": "Bloodwych",
-    "content": "Some changes i did on <a href=\"https://DrSnuggles.github.io/bloodwych/\" target=\"_blank\">Bloodwych</a>:<ul><li>QuickSave F4</li><li>QuickLoad F9</li><li>Save to file</li><li>Load via drag'n'drop</li><li>RMB closes opened menus</li><li>consume water/food</li><li>removed jQuery dependency</li><li>fixes</li></ul>"
+    "content": "Some changes i did on <a href=\"https://DrSnuggles.github.io/Bloodwych/\" target=\"_blank\">Bloodwych</a>:<ul><li>QuickSave F4</li><li>QuickLoad F9</li><li>Save to file</li><li>Load via drag'n'drop</li><li>RMB closes opened menus</li><li>consume water/food</li><li>removed jQuery dependency</li><li>fixes</li></ul>"
   },
   {
     "date": "31.03.2020",
@@ -12,17 +22,17 @@
   {
     "date": "29.03.2020",
     "title": "IFF - Interchange File Format",
-    "content": "Inspired by old Amiga software i couldn't find an easy to use IFF 8SVX player for browsers.<br/>I did my own approach and for 8SVX i'm proud to say that this is the only software with all official and unoffical decompressors.<br/>Not only Fibonacci delta compression also Exponential delta compression next to ADPCM2 and ADPCM3.<br/>Play around with <a href=\"https://DrSnuggles.github.io/iff/\" target=\"_blank\">IFF</a>"
+    "content": "Inspired by old Amiga software i couldn't find an easy to use IFF 8SVX player for browsers.<br/>I did my own approach and for 8SVX i'm proud to say that this is the only software with all official and unoffical decompressors.<br/>Not only Fibonacci delta compression also Exponential delta compression next to ADPCM2 and ADPCM3.<br/>Play around with <a href=\"https://DrSnuggles.github.io/IFF/\" target=\"_blank\">IFF</a>"
   },
   {
     "date": "22.03.2020",
     "title": "Bloodwych",
-    "content": "Having fun while coding indoor<br/><br/>Found a Javascript port of an old game i love<br/>and decided to spend some time into it.<br/><a href=\"https://DrSnuggles.github.io/bloodwych/\" target=\"_blank\">Bloodwych</a>"
+    "content": "Having fun while coding indoor<br/><br/>Found a Javascript port of an old game i love<br/>and decided to spend some time into it.<br/><a href=\"https://DrSnuggles.github.io/Bloodwych/\" target=\"_blank\">Bloodwych</a>"
   },
   {
     "date": "08.03.2020",
     "title": "Goniometer",
-    "content": "Thanks to Youssef my focus seamless changed to my old jsGoniometer project.<br/><br/>WebAudio is quite tricky if you want exact values. It's always resampled to destination audio device sample rate.<br/>To make it worse we even don't know the original used sample rate.<br/>Until today...<a href=\"https://DrSnuggles.github.io/jsgoniometer/\" target=\"_blank\">Audio Analyser</a>"
+    "content": "Thanks to Youssef my focus seamless changed to my old jsGoniometer project.<br/><br/>WebAudio is quite tricky if you want exact values. It's always resampled to destination audio device sample rate.<br/>To make it worse we even don't know the original used sample rate.<br/>Until today...<a href=\"https://DrSnuggles.github.io/jsGoniometer/\" target=\"_blank\">Audio Analyser</a>"
   },
   {
     "date": "16.02.2020",
@@ -62,7 +72,7 @@
   {
     "date": "11.09.2019",
     "title": "Evoke19",
-    "content": "<img onclick=\"window.open('https://DrSnuggles.github.io/evoke19')\" src=\"img/Evoke19.png\" title=\"Evoke19\" alt=\"Evoke19\"/>"
+    "content": "<img onclick=\"window.open('https://DrSnuggles.github.io/Evoke19')\" src=\"img/Evoke19.png\" title=\"Evoke19\" alt=\"Evoke19\"/>"
   },
   {
     "date": "09.12.2018",

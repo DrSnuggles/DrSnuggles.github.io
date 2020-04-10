@@ -1,6 +1,0 @@
-Floor 4
-X: 1
-Y: 22
-Map: SerpEx
-
-First Group Monsters - Drop Chromatic Key
