@@ -1,5 +1,10 @@
 [
   {
+    "date": "13.04.2020",
+    "title": "Bloodwych",
+    "content": "I reworked the loading process.<br/>Quite happy with the result. <a href=\"https://DrSnuggles.github.io/Bloodwych/\" target=\"_blank\">Bloodwych</a>"
+  },
+  {
     "date": "10.04.2020",
     "title": "Github pages",
     "content": "Did several tests how to deploy github pages.<br/>Specially jsVecx where i push a subdir from non master branch into gh-pages branch<br/>Cleaning up a bit..."
