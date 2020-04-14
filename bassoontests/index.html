@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>BassoonTracker - Standalone Player</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width user-scalable=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <script src="UZIP_BassoonPlayer-Bundle.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            BassoonTracker.init(true);
+            // not sure why i cant access Audio.context
+            //if (!Audio.context){
+            //    alert("Sorry\nYour browser does not support WebAudio\nSupported browsers are\nChrome, Firefox, Safari, and Edge");
+            //}else{
+                BassoonTracker.load("StardustMemories.zip",false,function(){
+                    setTimeout(BassoonTracker.playSong,100);
+                });
+            //}
+        });
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
