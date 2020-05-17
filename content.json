@@ -1,5 +1,10 @@
 [
   {
+    "date": "17.05.2020",
+    "title": "SRT",
+    "content": "I played a bit with SRT files and this is what happened.<br/>Transform SRTs to tables, Timeshift and download shifted SRT again,<br/>Dialog detection and WebSpeech synthesis. <a href=\"https://DrSnuggles.github.io/srt/\" target=\"_blank\">SRT Converter</a>"
+  },
+  {
     "date": "13.04.2020",
     "title": "Bloodwych",
     "content": "I reworked the loading process.<br/>Quite happy with the result. <a href=\"https://DrSnuggles.github.io/Bloodwych/\" target=\"_blank\">Bloodwych</a>"
