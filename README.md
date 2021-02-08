@@ -1,3 +1,3 @@
 # DrSnuggles Github pages
 
-- Presentation of my work or other things
+- Presentation of my work or other things 
