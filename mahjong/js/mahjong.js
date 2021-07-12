@@ -13,7 +13,7 @@ EL.mahjong = ( function () {
   shiftY
 
   function log(...args){
-    if (debug) console.log(`[${name}: ${new Date().toISOString()}]`, ...args)
+    if (debug) console.log(`[Mahjong: ${new Date().toISOString()}]`, ...args)
   }
 
   //
@@ -47,6 +47,10 @@ EL.mahjong = ( function () {
       // Set main, game specifc HTML
       //
       document.body.innerHTML = `<style>
+      @font-face {
+        font-family: SegoeUI;
+        src: url(./css/seguiemj.ttf) format('ttf');
+      }
       body {
         background-color: #293061;
       }
@@ -73,6 +77,7 @@ EL.mahjong = ( function () {
         position: absolute;
         font-size: min(8vw, 9vh);
         transition: ease-in-out .1s;
+        font-family: SegoeUI;
       }
       /*.tile:hover,*/
       .tile.selected
@@ -326,7 +331,7 @@ EL.mahjong = ( function () {
         board[sel.getAttribute('l')][sel.getAttribute('r')][sel.getAttribute('c')] = 0
         
       } else {
-        EL.log('clicked 2nd tile wrong',board[l][r][c],sel.innerText)
+        //EL.log('clicked 2nd tile wrong',board[l][r][c],sel.innerText)
         return
       }
     } else {
