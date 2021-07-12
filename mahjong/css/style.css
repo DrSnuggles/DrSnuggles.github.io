@@ -1,0 +1,72 @@
+:root {
+  --dbgCol: #F0F;
+  --bgCol: Black;
+  --brtCol: White;
+  --seaCol: Aqua;
+  --sandCol: SandyBrown;
+  --streetCol: DarkGrey;
+  --grassCol: LimeGreen;
+}
+.black { background-color: var(--bgCol) !important; }
+.white { background-color: var(--brtCol) !important; }
+.sea { background-color: var(--seaCol) !important; }
+.sand { background-color: var(--sandCol) !important; }
+.street { background-color: var(--streetCol) !important; }
+.grass { background-color: var(--grassCol) !important; }
+
+body {
+  background-color: var(--bgCol);
+  color: var(--brtCol);
+  overflow: hidden;
+  margin: 0;
+  font: 3.5vw sans-serif;
+  font-size: min(3.5vw, 3vh);
+  user-select: none;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font: 6pt sans-serif;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.map {
+  border-collapse: separate;
+  empty-cells: show;
+}
+#topLine,
+#bottomLine,
+.game
+{
+  width: min(100vw, 80vh);
+}
+.game
+{
+  border-collapse: collapse;
+  width: min(100vw, 80vh);
+  height: 80vh;
+  /* table-layout: fixed; */
+  image-rendering: pixelated;
+}
+
+.map td {
+  width: 21px;
+  height: 21px;
+  background-color: var(--dbgCol);
+}
+.game td {
+  border: 1px solid transparent;
+  /* padding: 0; */
+  /* margin: 0; */
+  max-width: 1px;
+  max-height: 1px;
+  height: 5.5vh;
+  width: 3.2vw;
+  text-align: center;
+}
+.map td:hover {
+  border: 1px solid white;
+}
